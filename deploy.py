@@ -234,10 +234,11 @@ def main():
     
     if st.button('Thai news tag result'):
         prediction_list = prediction_model(title_input, body_input)
-        if not prediction_list:
-            tag = 'No tag'
-        else:
-            tag = ', '.join(prediction_list)
+    
+    if not prediction_list:
+        tag = 'No tag'
+    else:
+        tag = ', '.join(prediction_list)
         
     st.success(tag)
 

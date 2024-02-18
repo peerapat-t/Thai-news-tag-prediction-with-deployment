@@ -231,7 +231,7 @@ def prediction_model(title_input, body_input):
 
 # %%
 def main():
-    st.title('Thai news tag recommendation')
+    st.title('Thai news tag prediction')
 
     title_input = st.text_input('News title')
     body_input = st.text_area('News body', height=300)

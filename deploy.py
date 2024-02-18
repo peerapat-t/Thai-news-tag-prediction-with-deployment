@@ -220,7 +220,14 @@ def prediction_model(title_input, body_input):
         pass
 
 
-    print(result)
+    tag_string = ''
+
+    if not result:
+        tag_string = 'No tag'
+    else:
+        tag_string = ', '.join(result)
+
+    print(tag_string)
 
 # %%
 def main():
@@ -229,18 +236,12 @@ def main():
     title_input = st.text_input('News title')
     body_input = st.text_area('News body', height=300)
 
-    prediction_list = []
-    tag = ''
+    tag_string = ''
     
     if st.button('Thai news tag result'):
-        prediction_list = prediction_model(title_input, body_input)
-    
-    if not prediction_list:
-        tag = 'No tag'
-    else:
-        tag = ', '.join(prediction_list)
+        tag_string = prediction_model(title_input, body_input)
         
-    st.success(tag)
+    st.success(tag_string)
 
 # %% [markdown]
 # # Run

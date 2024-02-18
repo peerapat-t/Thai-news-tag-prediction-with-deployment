@@ -227,11 +227,13 @@ def main():
     st.title('Thai news tag recommendation')
 
     title_input = st.text_input('News title')
-    body_input = st.text_input('News body')
- 
+    body_input = st.text_area('News body', height=300)
+
+    prediction_list = []
+    tag = ''
+    
     if st.button('Thai news tag result'):
         prediction_list = prediction_model(title_input, body_input)
-        tag = ''
         if not prediction_list:
             tag = 'No tag'
         else:

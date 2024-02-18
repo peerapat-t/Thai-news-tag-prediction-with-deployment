@@ -227,7 +227,7 @@ def prediction_model(title_input, body_input):
     else:
         tag_string = ', '.join(result)
 
-    print(tag_string)
+    return tag_string
 
 # %%
 def main():
@@ -238,7 +238,7 @@ def main():
 
     tag_string = ''
     
-    if st.button('Thai news tag result'):
+    if st.button('Tag prediction !!'):
         tag_string = prediction_model(title_input, body_input)
         
     st.success(tag_string)

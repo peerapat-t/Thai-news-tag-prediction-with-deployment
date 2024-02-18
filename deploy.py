@@ -120,7 +120,7 @@ def prediction_model(title_input, body_input):
 
     result = []
 
-    all_input = title_input + body_input
+    all_input = str(title_input) + str(body_input)
 
     # Politics prediction
     politics_vector = politics_vectorization_model.transform([all_input])
@@ -228,16 +228,14 @@ def main():
 
     title_input = st.text_input('News title')
     body_input = st.text_input('News body')
-
-
-    prediction_list = prediction_model(title_input, body_input)
-    tag = ''
-
-
-    if not prediction_list:
-        tag = 'No tag'
-    else:
-        tag = ', '.join(prediction_list)
+ 
+    if st.button('Thai news tag result'):
+        prediction_list = prediction_model(title_input, body_input)
+        tag = ''
+        if not prediction_list:
+            tag = 'No tag'
+        else:
+            tag = ', '.join(prediction_list)
         
     st.success(tag)
 

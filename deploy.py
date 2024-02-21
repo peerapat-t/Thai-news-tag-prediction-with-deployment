@@ -229,6 +229,9 @@ def prediction_model(title_input, body_input):
 
     return tag_string
 
+# %% [markdown]
+# # User interface
+
 # %%
 def main():
     st.title('Thai news tag prediction')
